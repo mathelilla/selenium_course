@@ -9,12 +9,29 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 
-def test_course():
-    driver = webdriver.Chrome()
-    driver.get("https://mathelilla.github.io/selenium_course/")
-    driver.set_window_size(1226, 731)
-    driver.find_element(By.NAME, "a").send_keys("a")
-    driver.find_element(By.NAME, "b").send_keys("b")
-    driver.find_element(By.ID, "button").click()
+class TestGit():
+    def setup_method(self):
+        self.vars = {}
+
+        self.driver = webdriver.Chrome()
+        self.driver.get("https://mathelilla.github.io/selenium_course/")
+        self.driver.set_window_size(1226, 731)
+
+    def teardown_method(self):
+        self.driver.quit()
+
+    def test_html(self):
+
+        header_text = self.driver.find_element(By.XPATH, "//h1").text
+        print(header_text)
+        assert header_text == 'Calculator'
+
+        self.driver.find_element(By.NAME, "a").send_keys("a")
+        self.driver.find_element(By.NAME, "b").send_keys("b")
+        self.driver.find_element(By.ID, "button").click()
         #assert self.driver.find_element(By.CSS_SELECTOR, ".alert").text == "Location has saved"
 
+
+first = TestGit()
+first.setup_method()
+first.test_html()
