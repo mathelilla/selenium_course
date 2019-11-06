@@ -15,6 +15,6 @@ def test_course():
     driver.set_window_size(1226, 731)
     driver.find_element(By.NAME, "a").send_keys("a")
     driver.find_element(By.NAME, "b").send_keys("b")
-    driver.find_element(By., ".btn-primary").click()
+    driver.find_element(By.ID, "button").click()
         #assert self.driver.find_element(By.CSS_SELECTOR, ".alert").text == "Location has saved"
 
