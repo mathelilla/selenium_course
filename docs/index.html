@@ -11,8 +11,18 @@
         <p>This is an awesome sum calculator. Try it out!</p>
 
         <form>
-            <input name="a"> +
-            <input name="b">
-            <input id="button" type="submit" value="Let's calculate!">
+            <div>
+                <input id="a-input" name="a"> +
+                <input id="b-input" name="b">
+                <input id="submit-button" type="submit" value="Let's calculate!" onclick="calcSum()">
+            </div>
+            <div>
+                Result:
+                <input id="result-input" name="result" readonly="true">
+            </div>
+        </form>
+        <script src="function.js"></script>
     </body>
 </html>
+
+

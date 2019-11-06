@@ -28,7 +28,7 @@ class TestGit():
 
         self.driver.find_element(By.NAME, "a").send_keys("a")
         self.driver.find_element(By.NAME, "b").send_keys("b")
-        self.driver.find_element(By.ID, "button").click()
+        self.driver.find_element(By.ID, "submit-button").click()
         #assert self.driver.find_element(By.CSS_SELECTOR, ".alert").text == "Location has saved"
 
 
