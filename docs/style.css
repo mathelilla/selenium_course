@@ -1,0 +1,16 @@
+h1 {
+	color: grey;
+}
+
+button {
+	color: blue;
+}
+
+p {
+	color: dark-grey;
+}
+
+input {
+  width: 30%;
+  margin: 8px 0;
+}
