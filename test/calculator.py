@@ -22,16 +22,15 @@ class TestGit():
 
     def test_html(self):
 
-        header_text = self.driver.find_element(By.XPATH, "//h1").text
-        print(header_text)
-        assert header_text == 'Calculator'
+        self.header_text = self.driver.find_element(By.XPATH, "//h1").text
+        assert self.header_text == 'Calculator'
 
-        self.driver.find_element(By.NAME, "a").send_keys("a")
-        self.driver.find_element(By.NAME, "b").send_keys("b")
-        self.driver.find_element(By.ID, "submit-button").click()
-        #assert self.driver.find_element(By.CSS_SELECTOR, ".alert").text == "Location has saved"
+        self.first_input_element = self.driver.find_element(By.NAME, "a").send_keys(10)
+        self.second_input_element = self.driver.find_element(By.NAME, "b").send_keys(20)
 
+        self.submit_button = self.driver.find_element(By.ID, "submit-button").click()
 
-first = TestGit()
-first.setup_method()
-first.test_html()
+        self.result = self.driver.find_element(By.NAME, "result").get_attribute("value")
+        assert self.result == str(30)
+
+        self.driver.save_screenshot("result2.png")
