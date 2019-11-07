@@ -25,12 +25,20 @@ class TestGit():
         self.header_text = self.driver.find_element(By.XPATH, "//h1").text
         assert self.header_text == 'Calculator'
 
-        self.first_input_element = self.driver.find_element(By.NAME, "a").send_keys(10)
-        self.second_input_element = self.driver.find_element(By.NAME, "b").send_keys(20)
+        first_number = input("Give the first number! ")
+        second_number = input("Give the second number! ")
+
+        self.first_input_element = self.driver.find_element(By.NAME, "a").send_keys(first_number)
+        self.second_input_element = self.driver.find_element(By.NAME, "b").send_keys(second_number)
 
         self.submit_button = self.driver.find_element(By.ID, "submit-button").click()
 
         self.result = self.driver.find_element(By.NAME, "result").get_attribute("value")
-        assert self.result == str(30)
+        assert self.result == str(int(first_number) + int(second_number))
 
-        self.driver.save_screenshot("result2.png")
+        self.driver.save_screenshot("result.png")
+
+f = TestGit()
+f.setup_method()
+f.test_html()
+f.teardown_method()
